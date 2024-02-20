@@ -21,7 +21,7 @@ namespace NetCoreMVC.Controllers
 
         public IActionResult Privacy()
         {
-            _logger.LogInformation("BazeminLoasg", this.GetType().Name);
+            _logger.LogInformation("BazeminLoasasdg", this.GetType().Name);
             return View();
         }
 
