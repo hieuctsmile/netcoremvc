@@ -1,7 +1,12 @@
+using NetCoreMVC.Models.Entities;
+using NetCoreMVC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("BazeminDatabase"));
+builder.Services.AddScoped<IUserServices, UserServices>();
 
 var app = builder.Build();
 
@@ -23,5 +28,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllers();
 
 app.Run();
